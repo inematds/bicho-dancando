@@ -1,5 +1,17 @@
 # bicho-dancando
 
+[![bicho-dancando](guia/assets/banner.jpg)](https://inematds.github.io/bicho-dancando/guia/)
+
+**🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
+
+## O que é
+
+O bicho-dancando é um kit de scripts para quem faz vídeos curtos e quer um bicho dançando igualzinho a um vídeo de referência. Você dá um vídeo de alguém dançando e uma frase descrevendo o bicho; o kit pinta uma roupa no dançarino, cria a imagem do bicho em pé e manda o Kling (gerador de vídeo por IA) copiar os passos. No fim junta a música e um fecho com o texto do INEMA.CLUB. Precisa de uma assinatura do Kling com a ferramenta de linha de comando instalada, Python e ffmpeg.
+
+## 📖 Guia de uso
+
+Guia completo (landing + passo a passo): **https://inematds.github.io/bicho-dancando/guia/**
+
 Kit para pegar a dança de um vídeo e fazer **qualquer bicho** dançar igual: porco, capivara, gatinha.
 Usa o Kling pela assinatura (CLI `kling`) e, como alternativa grátis, o Agnes. Os scripts locais
 (pose, roupa pintada, fecho) rodam na sua máquina, sem custo.
@@ -11,6 +23,14 @@ Usa o Kling pela assinatura (CLI `kling`) e, como alternativa grátis, o Agnes. 
 | Agnes | 4 poses + 3 clipes keyframe de 8 s | passos livres, pode desviar de cena | grátis (API Agnes) |
 
 ![Resultado](exemplos/resultado-porco.jpg)
+
+## Exemplos em vídeo
+
+Os três bichos dançando a mesma dança (216 créditos cada):
+
+- 🐷 Porco de cabelo de cuia — https://www.youtube.com/watch?v=3jfNlJ4DduI
+- 🦫 Capivara diva — https://www.youtube.com/watch?v=opnakJZBDro
+- 🐱 Gatinha fofa — https://www.youtube.com/watch?v=aivt5jwgGX4
 
 ## O processo, do início ao fim
 
@@ -59,10 +79,11 @@ folha e refazer só o clipe torto.
 | `kit/agnes_poses.py` | versão Agnes: poses + clipes keyframe |
 
 Requisitos: `ffmpeg`, Python 3 com `mediapipe`, `opencv-python`, `pillow`; CLI `kling` logada
-(`npm i -g @klingai/cli-global` + `kling login`). O modelo de pose (30 MB) baixa sozinho na 1ª vez.
+(`npm i -g @klingai/cli-global` + `kling login`). O modelo de pose (30 MB) baixa sozinho na 1ª vez. O fecho usa `~/.local/share/fonts/Montserrat-Black.ttf` (Google Fonts, pasta `static/` do zip).
 
 ## Limites
 
 - O Kling decide o que é "personagem": traço puro não conta; bicho fotorrealista em pé conta.
+- Pose do bicho importa: com a capivara "parada" (patas junto ao corpo) o Motion Control devolveu "No valid characters detected in the image" (sem cobrança); a mesma capivara em pose de dança (perna levantada, braços afastados) funcionou. Escolha a imagem com braços e pernas bem separados do corpo.
 - Motion Control herda o enquadramento da referência; se o dançarino sai do quadro, o bicho também sai.
 - Login da CLI vence: `kling login` abre o navegador e espera só 5 minutos pelo retorno.

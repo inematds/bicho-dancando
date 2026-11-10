@@ -1,4 +1,4 @@
-"""Pinta camiseta + short no porco do vídeo original usando a pose (MediaPipe).
+"""Pinta camiseta + short no dançarino do vídeo de referência usando a pose (MediaPipe).
 Uso: python3 vestir.py <video> <saida.mp4>"""
 import sys
 import cv2

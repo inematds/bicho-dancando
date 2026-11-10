@@ -7,7 +7,7 @@
 #   4) põe a música da referência e o fecho "construindo no INEMA.CLUB · baixa o kit"
 # Saída: saida/<nome>/<nome>-final.mp4
 set -euo pipefail
-REF="$(realpath "$1")"; NOME="$2"; BICHO="$3"; IMG="${4:-}"
+REF="$(realpath "$1")"; NOME="$2"; BICHO="$3"; IMG="${4:+$(realpath "$4")}"
 KIT="$(cd "$(dirname "$0")" && pwd)"; K="${KLING:-kling}"
 OUT="$(pwd)/saida/$NOME"; mkdir -p "$OUT"; cd "$OUT"
 
