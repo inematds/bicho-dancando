@@ -1,0 +1,4 @@
+kit/pose_landmarker_heavy.task
+__pycache__/
+*.mp4
+saida/
